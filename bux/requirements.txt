@@ -7,8 +7,11 @@ nba-data==1.9
 PyExecJS==1.5.1
 PyReact==0.6.0
 pytz==2019.1
-requests>=2.20.0
+PyYAML==5.1
+requests==2.18.4
 six==1.12.0
 sqlparse==0.3.0
-urllib3>=1.24.2
+ujson==1.35
+urllib3==1.22
+v20==3.0.25.0
 virtualenv==16.5.0
