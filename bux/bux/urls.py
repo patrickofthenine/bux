@@ -15,6 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from price import consumer
+
+consumer = consumer.PriceConsumer()
+account_id = consumer.get_account_id()
+
+
 
 urlpatterns = [
     path('admin/', 	admin.site.urls),

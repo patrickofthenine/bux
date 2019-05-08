@@ -1,13 +1,13 @@
-import asyncio
+import json
+import requests
+import yaml
+
 #	https://stream-fxpractice.oanda.com/
 class PriceConsumer():
-	async def consume_stream(message):
-		reader, writer = await asyncio.open_opennection('https://stream-fxpractice.oanda.com/')
-		writer.write(message.encode())
-		data = await reader.read(100)
-		print(f'recced: {data.decode()!r}')
-		writer.close()
-		await writer.wait_closed()
-		return
-	
-asyncio.run(consume_stream('HAKDFJAKSDJFKASJDFKAJSFD'))	
+	def consume_stream(self):
+		return;	
+	def get_account_id(self):
+		with open('config.yml') as yams:
+			conf = yaml.safe_load(yams)
+			print(conf)
+		return;	
