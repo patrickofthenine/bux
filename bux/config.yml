@@ -1,2 +1,15 @@
 oanda:
-        Bearer: ''
+  Authorization: 'a34058818ab1f2dd7ce2fc9468417340-a7124f1c9529eac95a2c446768483ffc'
+  api:
+    streaming_base: 'https://stream-fxpractice.oanda.com'
+    rest_base:      'https://api-fxpractice.oanda.com'
+    paths:
+      rest: 
+        account:    
+          list:         '/v3/accounts'
+          instruments:  '/v3/accounts/{account_id}/instruments'
+          price:        '/v3/accounts/{account_id}/pricing'
+      stream:
+        account:
+          price:        '/v3/accounts/{account_id}/pricing/stream'
+
