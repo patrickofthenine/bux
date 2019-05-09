@@ -2,6 +2,7 @@ import json
 import requests
 import yaml
 import pprint
+import os
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -16,10 +17,9 @@ class PriceConsumer():
 			oanda_api_config    = oanda_conf['api']
 			oanda_rest_base     = oanda_api_config['rest_base']
 			oanda_account_list  = oanda_api_config['paths']['rest']['account']['list']
-			token 				= oanda_conf['token']
+			token 				= oanda_conf['token'] if oanda_conf['token'] else os.environ['OANDA_TOKEN']
 			req_url 			= oanda_rest_base + oanda_account_list
 			headers 			= {'Authorization': 'Bearer %s' %token}
-			print(headers)
 			res = requests.get(req_url, headers=headers)
 			pp.pprint(res.content)
 
