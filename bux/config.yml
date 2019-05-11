@@ -7,9 +7,9 @@ oanda:
       rest: 
         account:    
           list:         '/v3/accounts'
-          instruments:  '/v3/accounts/{account_id}/instruments'
-          price:        '/v3/accounts/{account_id}/pricing'
+          instruments:  '/v3/accounts/{}/instruments'
+          price:        '/v3/accounts/{}/pricing'
       stream:
         account:
-          price:        '/v3/accounts/{account_id}/pricing/stream'
+          price:        '/v3/accounts/{}/pricing/stream'
 
