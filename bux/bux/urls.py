@@ -21,11 +21,7 @@ pp = pprint.PrettyPrinter(indent=4)
 
 OANDA = oanda.OANDA()
 account = OANDA.get_account()
-print('######################');
 pp.pprint(account)
-print('######################');
-
-
 
 urlpatterns = [
     path('admin/', 	admin.site.urls),

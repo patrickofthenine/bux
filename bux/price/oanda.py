@@ -3,8 +3,16 @@ import requests
 import yaml
 import pprint
 import os
+import mock
+import time
 
 pp = pprint.PrettyPrinter(indent=4)
+mock = mock.Mock()
+item = mock.create_price_stream()
+while(item):
+	pp.pprint(item)
+	time.sleep(1)
+
 
 #	https://stream-fxpractice.oanda.com/
 class OANDA():
@@ -49,11 +57,12 @@ class OANDA():
 				for self.instrument in instruments:
 					if self.instrument == 'EUR_USD':
 						self.query_string = {'instruments': self.instrument}
-						price_res = requests.get(self.price_stream_req_url, headers=self.headers, params=self.query_string, stream=True)
-						for line in price_res.iter_lines():
-							if line:
-								self.decoded = line.decode('utf-8')
-								print(json.loads(self.decoded))
+						self.is_streaming = True if self.stream_base else False
+				#		price_res = requests.get(self.price_stream_req_url, headers=self.headers, params=self.query_string, stream=self.is_streaming)
+				#		for line in price_res.iter_lines():
+				#			if line:
+				#				self.decoded = line.decode('utf-8')
+				#				print(json.loads(self.decoded))
 
 		else:
 			return res.status_code
